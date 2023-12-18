@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZSD_OD_LKU_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Subscription" sap:semantics="subscriptions" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Sub. ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="user" Type="Edm.String" MaxLength="12" m:FC_TargetPath="SyndicationAuthorName" m:FC_KeepInContent="false" sap:label="User Name" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" MaxLength="255" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Title" sap:filterable="false"/>
+                <Property Name="deliveryAddress" Type="Edm.String" sap:label="Delivery Address" sap:filterable="false"/>
+                <Property Name="persistNotifications" Type="Edm.Boolean" sap:label="Persist Notification" sap:filterable="false"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection" sap:filterable="false"/>
+                <Property Name="filter" Type="Edm.String" sap:label="Filter" sap:filterable="false"/>
+                <Property Name="select" Type="Edm.String" MaxLength="255" sap:label="Select" sap:filterable="false"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+            </EntityType>
+            <EntityType Name="Notification" sap:semantics="notifications" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Notification ID"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection"/>
+                <Property Name="title" Type="Edm.String" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Notif. Text"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+                <Property Name="entriesOfInterest" Type="Edm.Int32" sap:label="No. of Entries"/>
+                <Property Name="recipient" Type="Edm.String" MaxLength="112" sap:label="Recipient" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="ZsdShReqid" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ReqId"/>
+                </Key>
+                <Property Name="ReqId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Credit Request ID"/>
+                <Property Name="ReqDesc" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Description"/>
+                <Property Name="ReqType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Request Type"/>
+                <Property Name="Subject" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Subject"/>
+            </EntityType>
+            <EntityType Name="ZsdShReqcust" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                </Key>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer"/>
+                <Property Name="Name1" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name"/>
+                <Property Name="Ort01" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="City"/>
+                <Property Name="Pstlz" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Postal Code"/>
+                <Property Name="Sortl" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Search term"/>
+                <Property Name="Stras" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Street"/>
+                <Property Name="Regio" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Region"/>
+                <Property Name="Name2" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name 2"/>
+                <Property Name="Name3" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name 3"/>
+                <Property Name="Name4" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name 4"/>
+                <Property Name="Land1" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Ctry/Reg."/>
+            </EntityType>
+            <EntityType Name="zsd_sh_stat_lku" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StatusLku"/>
+                </Key>
+                <Property Name="StatusLku" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="StatusLkuText" sap:unicode="false" sap:label="Status LKU"/>
+                <Property Name="StatusLkuText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status LKU Description"/>
+            </EntityType>
+            <EntityType Name="ZsdShTop" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zterm"/>
+                    <PropertyRef Name="Ztagg"/>
+                </Key>
+                <Property Name="Zterm" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Payt terms"/>
+                <Property Name="Ztagg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Day Limit"/>
+                <Property Name="Ztag1" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Days from Baseline Date for Payment"/>
+                <Property Name="Text1" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Own Explanatn"/>
+            </EntityType>
+            <EntityType Name="zsd_lku_head" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityId"/>
+                </Key>
+                <Property Name="ActivityId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Activity ID"/>
+                <Property Name="ReqId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Credit Request ID"/>
+                <Property Name="Kunnr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer No"/>
+                <Property Name="StatusLku" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Status LKU" sap:filterable="false"/>
+                <Property Name="StatusLkuText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status LKU"/>
+                <Property Name="Deleted" Type="Edm.Boolean" sap:unicode="false" sap:label="Deleted" sap:filterable="false"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Created on"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Create Time"/>
+                <Property Name="CreateName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By" sap:filterable="false"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Changed On"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time of change"/>
+                <Property Name="ChangeName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By" sap:filterable="false"/>
+                <Property Name="Action" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Action" sap:filterable="false"/>
+                <Property Name="Flag" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:filterable="false"/>
+                <Property Name="Msg" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message Text" sap:filterable="false"/>
+                <Property Name="StatusTrs" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:filterable="false"/>
+                <Property Name="FreeText" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Text" sap:filterable="false"/>
+                <Property Name="Name1" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Customer Name"/>
+                <Property Name="Landx50" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Country/Region"/>
+                <Property Name="ReqDesc" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Request ID Description"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Status" sap:filterable="false"/>
+                <Property Name="StatusText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Request ID"/>
+                <Property Name="CreatedName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Created Name"/>
+                <Property Name="ChangedName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Changed Name"/>
+                <Property Name="Role" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Explanation" sap:filterable="false"/>
+                <Property Name="Etag" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Hash Value" sap:filterable="false"/>
+                <NavigationProperty Name="head_to_info" Relationship="ZSD_OD_LKU_SRV.head_to_info" FromRole="FromRole_head_to_info" ToRole="ToRole_head_to_info"/>
+            </EntityType>
+            <EntityType Name="ZsdShActid" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityId"/>
+                </Key>
+                <Property Name="ActivityId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Activity ID"/>
+                <Property Name="ReqId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Credit Request ID"/>
+                <Property Name="ReqDesc" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Credit Request Description"/>
+                <Property Name="ReqType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Request Type"/>
+                <Property Name="Kunnr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer"/>
+                <Property Name="Subject" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Subject"/>
+            </EntityType>
+            <EntityType Name="zsd_lku_info" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityId"/>
+                </Key>
+                <Property Name="ActivityId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Activity ID"/>
+                <Property Name="ReqTopTxt" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Own Explanatn"/>
+                <Property Name="Ztagg" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Day Limit"/>
+                <Property Name="AlamatPer" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Alamat Perusahaan"/>
+                <Property Name="AlamatKun" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Alamat Kunjungan"/>
+                <Property Name="TelNumber" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Telephone"/>
+                <Property Name="TelExtens" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Ext."/>
+                <Property Name="MerkDagang" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Merk Dagang"/>
+                <Property Name="Website" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Website"/>
+                <Property Name="SmtpAddr" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address"/>
+                <Property Name="ReqLimit" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:unit="Waers" sap:label="Requested Credit Limit"/>
+                <Property Name="ReqTop" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Pengajuan Terms Pembayaran"/>
+                <Property Name="MillProductType" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Product Type"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created on"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time"/>
+                <Property Name="CreateName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Changed On"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time of change"/>
+                <Property Name="ChangeName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By"/>
+                <Property Name="Action" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Action"/>
+                <Property Name="Flag" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag"/>
+                <Property Name="Msg" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message Text"/>
+                <Property Name="StatusTrs" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Indicator"/>
+                <Property Name="FreeText" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Text"/>
+                <Property Name="ProductTypeText" Type="Edm.String" MaxLength="70" sap:unicode="false" sap:label="Product Type Desc"/>
+            </EntityType>
+            <Association Name="head_to_info" sap:content-version="1">
+                <End Type="ZSD_OD_LKU_SRV.zsd_lku_head" Multiplicity="1" Role="FromRole_head_to_info"/>
+                <End Type="ZSD_OD_LKU_SRV.zsd_lku_info" Multiplicity="1" Role="ToRole_head_to_info"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_head_to_info">
+                        <PropertyRef Name="ActivityId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_head_to_info">
+                        <PropertyRef Name="ActivityId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZSD_OD_LKU_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SubscriptionCollection" EntityType="ZSD_OD_LKU_SRV.Subscription" sap:content-version="1"/>
+                <EntitySet Name="NotificationCollection" EntityType="ZSD_OD_LKU_SRV.Notification" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ZsdShReqidSet" EntityType="ZSD_OD_LKU_SRV.ZsdShReqid" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZsdShReqcustSet" EntityType="ZSD_OD_LKU_SRV.ZsdShReqcust" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="zsd_sh_stat_lkuSet" EntityType="ZSD_OD_LKU_SRV.zsd_sh_stat_lku" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZsdShTopSet" EntityType="ZSD_OD_LKU_SRV.ZsdShTop" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="zsd_lku_headSet" EntityType="ZSD_OD_LKU_SRV.zsd_lku_head" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZsdShActidSet" EntityType="ZSD_OD_LKU_SRV.ZsdShActid" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="zsd_lku_infoSet" EntityType="ZSD_OD_LKU_SRV.zsd_lku_info" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <AssociationSet Name="head_to_infoSet" Association="ZSD_OD_LKU_SRV.head_to_info" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zsd_lku_headSet" Role="FromRole_head_to_info"/>
+                    <End EntitySet="zsd_lku_infoSet" Role="ToRole_head_to_info"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://mdgdev.app.co.id:8000/sap/opu/odata/sap/ZSD_OD_LKU_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://mdgdev.app.co.id:8000/sap/opu/odata/sap/ZSD_OD_LKU_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

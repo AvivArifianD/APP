@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectTzone"
+		title="Time Zone"
+		items="{/ZsdShTzoneSet}"
+		search=".onVHSearchTzone"
+		confirm=".onVHCloseTzone"
+		cancel=".onVHCloseTzone">
+		<StandardListItem id="id_TzoneSList"
+			title="{Tzone}"
+			description="{Descript}" />
+	</SelectDialog>
+</core:FragmentDefinition>

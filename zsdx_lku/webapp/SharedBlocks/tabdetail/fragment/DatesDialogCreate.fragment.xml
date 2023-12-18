@@ -1,0 +1,138 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+>
+    <m:Dialog
+        title="Dates"
+        id="id_DialogCrt"
+        resizable="true"
+        draggable="true"
+    >
+        <f:SimpleForm
+            id="FormHeader2"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="2"
+            labelSpanL="2"
+            labelSpanM="2"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <f:content>
+                <!--Date Type -->
+                <m:Label
+                    id="id_DateTypeLabH"
+                    text="Date Type"
+                />
+                <m:ComboBox
+                    id="id_DateTypeComH"
+                    showSecondaryValues="true"
+                    required="true"
+                    filterSecondaryValues="true"
+                    items="{ path: '/ZsdShDateTypeSet'}"
+                >
+                    <core:ListItem
+                        id="id_DateTypeValH"
+                        key="{DateType}"
+                        text="{DateTypeText}"
+                        additionalText="{DateType}"
+                    />
+                </m:ComboBox>
+
+                <m:Label
+                    id="id_DateFromLabH"
+                    text="Date From"
+                />
+                <m:DatePicker
+                    id="id_DateFromVal"
+                    showFooter="true"
+                    valueFormat="dd.MM.yyyy"
+                    placeholder="dd.mm.yyyy"
+                    displayFormat="dd.MM.yyyy"
+                    required="true"
+                />
+
+                <m:Label
+                    id="id_TimeFromLabH"
+                    text="Time From"
+                />
+                <m:TimePicker
+                    id="id_TimeFromVal"
+                    valueFormat="HH:mm:ss"
+                    displayFormat="HH:mm:ss"
+                    support2400="true"
+                    placeholder="HH:mm:ss"
+                    required="true"
+                />
+
+                <m:Label
+                    id="id_DateToLabH"
+                    text="Date To"
+                />
+                <m:DatePicker
+                    id="id_DateToVal"
+                    showFooter="true"
+                    valueFormat="dd.MM.yyyy"
+                    placeholder="dd.mm.yyyy"
+                    displayFormat="dd.MM.yyyy"
+                    required="true"
+                />
+
+                <m:Label
+                    id="id_TimeToLabH"
+                    text="Time To"
+                />
+                <m:TimePicker
+                    id="id_TimeToVal"
+                    valueFormat="HH:mm:ss"
+                    displayFormat="HH:mm:ss"
+                    support2400="true"
+                    placeholder="HH:mm:ss"
+                    required="true"
+                />
+
+                <m:Label
+                    id="id_TzoneLabH"
+                    text="Time Zone"
+                />
+                <m:Input
+                    id="id_TzoneVal"
+                    showValueHelp="true"
+                    valueHelpRequest=".onVHTzone"
+                />
+            </f:content>
+        </f:SimpleForm>
+
+        <m:FlexBox
+            id="_IDGenFlexBox3"
+            alignItems="Stretch"
+            justifyContent="End"
+            width="100%"
+        >
+            <m:Button
+                class="sapUiTinyMarginEnd"
+                id="id_btnAdd"
+                text="Add"
+                press="onAddDatesDialog"
+                type="Default"
+            />
+            <m:Button
+                class="sapUiTinyMarginEnd"
+                id="_IDGenButton2"
+                text="Close"
+                press="onCloseDatesDialog"
+            />
+        </m:FlexBox>
+    </m:Dialog>
+</core:FragmentDefinition>

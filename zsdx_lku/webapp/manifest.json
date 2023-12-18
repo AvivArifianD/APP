@@ -1,0 +1,161 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "com.zsdlku.zsdxlku",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.9.6",
+      "toolsId": "7e1b90e6-7cdb-41de-935b-7452a8eaac09"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZSD_OD_LKU_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "localAnnotations"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "localAnnotations": {
+        "uri": "annotations/annotations.xml",
+        "type": "ODataAnnotation"
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "zsd_so_lku-display": {
+          "semanticObject": "zsd_so_lku",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.96.6",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.zsdlku.zsdxlku.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.zsdlku.zsdxlku.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMainLku",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMainLku"
+          ]
+        },
+        {
+          "name": "EditLku",
+          "pattern": "EditLku/{ActivityId}",
+          "target": [
+            "TargetEditLku"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMainLku": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MainLku",
+          "viewName": "MainLku"
+        },
+        "TargetEditLku": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "EditLku",
+          "viewName": "EditLku"
+        },
+        "detailObjectNotFound": {
+          "viewName": "DetailObjectNotFound",
+          "viewId": "detailObjectNotFound"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.zsdlku.zsdxlku.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

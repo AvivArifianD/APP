@@ -1,0 +1,253 @@
+<mvc:View
+    controllerName="com.zsdlku.zsdxlku.SharedBlocks.tabdetail.InfomasiUmumLku"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:smartField="sap.ui.comp.smartfield"
+>
+    <f:SimpleForm
+        id="FormInformasiUmum"
+        layout="ResponsiveGridLayout"
+        columnsXL="2"
+        columnsL="2"
+        columnsM="2"
+        labelSpanXL="5"
+        labelSpanL="5"
+        labelSpanM="5"
+        labelSpanS="5"
+        adjustLabelSpan="false"
+        emptySpanXL="0"
+        emptySpanL="0"
+        emptySpanM="0"
+        emptySpanS="0"
+        singleContainerFullSize="false"
+        editable="true"
+        class="editableForm"
+    >
+        <f:content>
+            <Label
+                id="_IDItemLabelAlamatPer"
+                text="{/#zsd_lku_info/AlamatPer/@sap:label}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputAlamatPer"
+                value="{head_to_info/AlamatPer}"
+                editable="{fieldControl>/info-AlamatPer-editable}"
+            />
+
+            <Label
+                id="_IDItemLabelAlamatKun"
+                text="{/#zsd_lku_info/AlamatKun/@sap:label}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputAlamatKun"
+                value="{head_to_info/AlamatKun}"
+                editable="{fieldControl>/info-AlamatKun-editable}"
+            />
+
+            <Label
+                id="_IDItemLabelTelNumber"
+                text="{/#zsd_lku_info/TelNumber/@sap:label} / {/#zsd_lku_info/TelExtens/@sap:label}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputTelNumber"
+                value="{head_to_info/TelNumber}"
+                editable="{fieldControl>/info-TelNumber-editable}"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridPolid"
+                        span="XL2 L4 M6 S4"
+                    />
+                </layoutData>
+            </Input>
+
+            <Text
+                id="_IDItemTextSlash2"
+                text="/"
+                textAlign="Center"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridSlash2"
+                        span="XL2 L1 M3 S4"
+                    />
+                </layoutData>
+            </Text>
+
+            <Input
+                id="_IDItemInputTelExtens"
+                value="{head_to_info/TelExtens}"
+                editable="{fieldControl>/info-TelExtens-editable}"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridPolid2"
+                        span="XL2 L2 M6 S4"
+                    />
+                </layoutData>
+            </Input>
+
+            <Label
+                id="_IDItemLabelMerkDagang"
+                text="{/#zsd_lku_info/MerkDagang/@sap:label}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputMerkDagang"
+                value="{head_to_info/MerkDagang}"
+                editable="{fieldControl>/info-MerkDagang-editable}"
+            />
+
+            <Label
+                id="_IDItemLabelWebsite"
+                text="{/#zsd_lku_info/Website/@sap:label}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputWebsite"
+                value="{head_to_info/Website}"
+                editable="{fieldControl>/info-Website-editable}"
+            />
+
+            <Label
+                id="_IDItemLabelReqLimit"
+                text="{/#zsd_lku_info/ReqLimit/@sap:label}"
+                required="{fieldControl>/info-ReqLimit-required}"
+                textAlign="Begin"
+            />
+            <Input
+                id="_IDItemInputWaers"
+                value="{head_to_info/Waers}"
+                editable="false"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridWaers"
+                        span="XL2 L3 M6 S4"
+                    />
+                </layoutData>
+            </Input>
+            <Input
+                id="_IDItemInputReqLimit"
+                value="{ parts: [ 'head_to_info/ReqLimit', 'head_to_info/Waers'],
+				                   type: 'sap.ui.model.type.Currency',
+                                   formatOptions: { showMeasure: false }
+                        }"
+                editable="{fieldControl>/info-ReqLimit-editable}"
+                liveChange="onLiveChangeReqLimit"
+                valueState="{fieldControl>/info-ReqLimit-valueState}"
+                valueStateText="{fieldControl>/info-ReqLimit-valueStateMsg}"
+                showValueStateMessage="true" 
+            />
+
+            <Label
+                id="_IDItemLabelReqTop"
+                text="{/#zsd_lku_info/ReqTop/@sap:label}"
+                textAlign="Begin"
+                visible="{fieldControl>/info-ReqTop-visible}"
+                required="{fieldControl>/info-ReqTop-required}"
+            />
+
+            <smartField:SmartField
+                id="_IDItemInputReqTOP"
+                value="{head_to_info/ReqTop}"
+                showSuggestion="true"
+                change="onChangeReqTop"
+                textInEditModeSource="ValueList"
+                editable="{fieldControl>/info-ReqTop-editable}"
+                visible="{fieldControl>/info-ReqTop-visible}"
+                fixedValueListValidationEnabled="true"
+                valueState="{fieldControl>/info-ReqTop-valueState}"
+                valueStateText="{fieldControl>/info-ReqTop-valueStateMsg}"
+                showValueStateMessage="true" 
+            />
+            <Input
+                id="_IDItemInputReqTOPText"
+                value="{head_to_info/ReqTopTxt}"
+                visible="{fieldControl>/info-ReqTopTxt-visible}"
+                editable="false"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridReqTOPTxt"
+                        span="XL2 L4 M6 S4"
+                    />
+                </layoutData>
+            </Input>
+
+            <Label
+                id="_IDItemLabelReqTop2"
+                text="{/#zsd_lku_info/ReqTop/@sap:label}"
+                textAlign="Begin"
+                visible="{= !${fieldControl>/info-ReqTop-visible} }"
+                required="{fieldControl>/info-ReqTop-required}"
+            />
+
+            <Input
+                id="_IDItemInputReqTOP2"
+                value="{head_to_info/ReqTop}"
+                visible="{= !${fieldControl>/info-ReqTop-visible} }"
+                editable="false"
+            />
+            <Input
+                id="_IDItemInputReqTOPText2"
+                value="{head_to_info/ReqTopTxt}"
+                visible="{= !${fieldControl>/info-ReqTop-visible} }"
+                editable="false"
+            >
+                <layoutData>
+                    <l:GridData
+                        id="_IDItemGridReqTOPTxt2"
+                        span="XL2 L4 M6 S4"
+                    />
+                </layoutData>
+            </Input>
+
+            <Label
+                id="_IDItemLabelMillProductType"
+                text="{/#zsd_lku_info/MillProductType/@sap:label}"
+                textAlign="Begin"
+                visible="{fieldControl>/info-MillProductType-visible}"
+            />
+
+            <smartField:SmartField
+                id="_IDItemInputMillProductType"
+                value="{head_to_info/MillProductType}"
+                textInEditModeSource="ValueList"
+                change="onChangeProductType"
+                editable="{fieldControl>/info-MillProductType-editable}"
+                visible="{fieldControl>/info-MillProductType-visible}"
+                showValueStateMessage="true"
+            >
+                <smartField:configuration>
+                    <smartField:Configuration
+                        id="_IDIncidConfiguration"
+                        controlType="input"
+                        displayBehaviour="descriptionOnly"
+                    />
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <Label
+                id="_IDItemLabelMillProductType2"
+                text="{/#zsd_lku_info/MillProductType/@sap:label}"
+                textAlign="Begin"
+                visible="{= !${fieldControl>/info-MillProductType-visible} }"
+            />
+
+            <Input
+                id="_IDItemInputMillProductType2"
+                value="{head_to_info/ProductTypeText}"
+                visible="{= !${fieldControl>/info-MillProductType-visible} }"
+                editable="false"
+            />
+
+        </f:content>
+    </f:SimpleForm>
+</mvc:View>

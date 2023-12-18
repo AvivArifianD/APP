@@ -1,0 +1,306 @@
+<mvc:View
+    controllerName="com.zsdlku.zsdxlku.controller.EditLku"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    height="100%"
+>
+    <m:Page
+        id="_IDGenPage1"
+        showHeader="false"
+        enableScrolling="true"
+        showNavButton="false"
+        busy="{EditLkuView>/busy}"
+    >
+        <ObjectPageLayout
+            id="ObjectPageLayout"
+            enableLazyLoading="true"
+            useIconTabBar="true"
+            showTitleInHeaderContent="true"
+            selectedSection="personaldataOPS"
+            upperCaseAnchorBar="false"
+        >
+            <headerTitle>
+                <ObjectPageDynamicHeaderTitle
+                    id="_IDGenObjectPageDynamicHeaderTitle1"
+                >
+                    <expandedHeading>
+                        <m:Title
+                            id="_IDGenTitle1"
+                            text="{i18n>title}"
+                            wrapping="true"
+                        />
+                    </expandedHeading>
+
+                    <snappedHeading>
+                        <m:FlexBox
+                            id="_IDGenFlexBox1"
+                            fitContainer="true"
+                            alignItems="Center"
+                        >
+                            <m:Title
+                                id="_IDGenTitle2"
+                                text="{i18n>title}"
+                                wrapping="true"
+                            />
+                        </m:FlexBox>
+                    </snappedHeading>
+
+                    <snappedTitleOnMobile>
+                        <m:Title
+                            id="_IDGenTitle5"
+                            text="{i18n>title}"
+                            wrapping="true"
+                        />
+                    </snappedTitleOnMobile>
+
+                    <actions>
+                        <m:Button
+                            id="id_BtnEdit"
+                            type="Emphasized"
+                            press="onToggleEdit"
+                            text="{EditLkuView>/EditDisplay-Txt}"
+                            icon="{EditLkuView>/EditDisplay-icon}"
+                        />
+                    </actions>
+                    <actions>
+                        <m:Button
+                            id="id_BtnBack"
+                            text="Back"
+                            type="Emphasized"
+                            press="onBack"
+                        />
+                    </actions>
+                </ObjectPageDynamicHeaderTitle>
+            </headerTitle>
+
+            <headerContent>
+                <m:FlexBox
+                    id="_IDGenFlexBox2"
+                    wrap="Wrap"
+                    fitContainer="true"
+                >
+                    <f:SimpleForm
+                        id="FormHeader"
+                        editable="true"
+                        layout="ColumnLayout"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        labelSpanL="4"
+                        labelSpanM="4"
+                        labelSpanS="4"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        singleContainerFullSize="false"
+                    >
+                        <f:content>
+                            <!-- Layout1 -->
+                            <!-- Credit Request ID -->
+                            <m:Label
+                                id="id_ReqIdLabH"
+                                text="{/#zsd_lku_head/ReqId/@sap:label}"
+                            />
+                            <m:Input
+                                id="id_ReqIdValH"
+                                editable="false"
+                                value="{ReqId}"
+                            />
+
+                            <!-- Request Type -->
+                            <m:Label
+                                id="id_ActivityIdLabH"
+                                text="{/#zsd_lku_head/ActivityId/@sap:label}"
+                            />
+                            <m:Input
+                                id="id_ActivityIdValH"
+                                editable="false"
+                                value="{ActivityId}"
+                            />
+
+                            <!-- Customer No. -->
+                            <m:Label
+                                id="id_CustLabH"
+                                text="{/#zsd_lku_head/Kunnr/@sap:label}"
+                            />
+                            <m:Input
+                                id="id_CustValH"
+                                editable="false"
+                                value="{Kunnr}"
+                            />
+                            <!-- Customer Name -->
+                            <m:Input
+                                id="id_CustNameValH"
+                                editable="false"
+                                value="{Name1}"
+                            />
+
+                            <!-- Status -->
+                            <m:Label
+                                id="id_StatusLkuLabH"
+                                text="Status"
+                            />
+                            <m:Input
+                                id="id_StatusLkuValH"
+                                editable="false"
+                                value="{StatusLkuText}"
+                            />
+
+                            <!-- Created By -->
+                            <m:Label
+                                id="id_CreatedByLabH"
+                                text="Created By"
+                            />
+                            <m:Input
+                                id="id_CreatedByValH"
+                                editable="false"
+                                value="{CreatedName}"
+                            />
+
+                            <!-- Created On -->
+                            <m:Label
+                                id="id_CreatedOnLabH"
+                                text="Created On"
+                            />
+                            <m:Input
+                                id="id_CreatedOnValH"
+                                editable="false"
+                                value="{ 
+												path: 'CreateDate', 
+												type: 'sap.ui.model.type.Date',
+												formatOptions: {
+													pattern: 'dd.MM.yyyy HH:mm:ss',
+													UTC: false
+												}
+											}"
+                            />
+
+                            <!-- Changed By -->
+                            <m:Label
+                                id="id_ChangedByLabH"
+                                text="Changed By"
+                            />
+                            <m:Input
+                                id="id_ChangedByValH"
+                                editable="false"
+                                value="{ChangedName}"
+                            />
+
+                            <!-- Changed On -->
+                            <m:Label
+                                id="id_ChangedoNLabH"
+                                text="Changed On"
+                            />
+                            <m:Input
+                                id="id_ChangedOnValH"
+                                editable="false"
+                                value="{ChangedDate}"
+                            />
+
+                            <!-- hidden fields-->
+                            <m:Label
+                                id="id_HiddenFields"
+                                visible="false"
+                            />
+
+                            <m:Input
+                                id="id_EtagValH"
+                                editable="false"
+                                visible="false"
+                                value="{Etag}"
+                            />
+                        </f:content>
+                    </f:SimpleForm>
+                </m:FlexBox>
+            </headerContent>
+
+             <sections>
+                <ObjectPageSection
+                    titleUppercase="false"
+                    id="id_InformasiUmumlOPS"
+                    title="Informasi Umum"
+                >
+                    <subSections>
+                        <ObjectPageSubSection
+                            id="id_InformasiUmumSPS"
+                            titleUppercase="false"
+                            title="Informasi Umum"
+                        >
+                            <blocks>
+                            <layout:BlockLayout
+                                    id="BlockContentInformasiUmum"
+                                    background="Dashboard"
+                                >
+                                    <layout:BlockLayoutRow id="BlockRowInformasiUmum">
+                                        <layout:BlockLayoutCell
+                                            id="BlockCellInformasiUmum"
+                                        >
+                                <mvc:XMLView
+                                    async="false"
+                                    id="id_ViewInformasiUmum"
+                                    viewName="com.zsdlku.zsdxlku.SharedBlocks.tabdetail.InfomasiUmumLku"
+                                />
+                                </layout:BlockLayoutCell>
+                                    </layout:BlockLayoutRow>
+                                </layout:BlockLayout>
+                            </blocks>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+
+                <ObjectPageSection
+                    titleUppercase="false"
+                    id="id_ProfPerusahaanOPS"
+                    title="Profile Perusahaan"
+                >
+                    <subSections>
+                        <ObjectPageSubSection
+                            id="id_ProfPerusahaanSPS"
+                            titleUppercase="false"
+                            title="Profile Perusahaan"
+                        >
+                            <blocks>
+                                <mvc:XMLView
+                                    async="false"
+                                    id="id_ViewCProfPerusahaan"
+                                    viewName="com.zsdlku.zsdxlku.SharedBlocks.tabdetail.ProfPerusahaanLku"
+                                />
+                            </blocks>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+            </sections>
+
+
+        </ObjectPageLayout>
+
+        <m:footer>
+            <m:OverflowToolbar id="otbFooter">
+                <m:ToolbarSpacer id="_IDGenToolbarSpacer1" />
+
+                <m:Button
+                    id="id_BtnSave"
+                    type="Accept"
+                    text="Save"
+                    press="onSaveLku"
+                    enabled="{fieldControl>/head-Save-editable}"
+                    visible="{fieldControl>/head-Save-visible}"
+                >
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData1"
+                        />
+                    </m:layoutData>
+                </m:Button>
+            </m:OverflowToolbar>
+        </m:footer>
+    </m:Page>
+</mvc:View>

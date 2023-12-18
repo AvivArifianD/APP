@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_head/ActivityId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="ZsdShActidSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="ActivityId" />
+                            <PropertyValue Property="ValueListProperty" String="ActivityId" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="ReqId" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="ReqDesc" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="ReqType" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="Subject" />
+                            <PropertyValue Property="ValueListProperty" String="Subject" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Kunnr" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_head/ReqId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="ZsdShReqidSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="ReqId" />
+                            <PropertyValue Property="ValueListProperty" String="ReqId" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="ReqDesc" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="ReqType" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="Subject" />
+                            <PropertyValue Property="ValueListProperty" String="Subject" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_head/Kunnr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="ZsdShReqcustSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="Kunnr" />
+                            <PropertyValue Property="ValueListProperty" String="Kunnr" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Name1" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Ort01" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Pstlz" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Sortl" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Stras" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Land1" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Regio" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Name2" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Name3" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Name4" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_head/StatusLkuText" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueListWithFixedValues" Bool="true" />
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="zsd_sh_stat_lkuSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="StatusLkuText" />
+                            <PropertyValue Property="ValueListProperty" String="StatusLkuText" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_info/ReqTop" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="ZsdShTopSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="ReqTop" />
+                            <PropertyValue Property="ValueListProperty" String="Zterm" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="Ztagg" />
+                            <PropertyValue Property="ValueListProperty" String="Ztag1" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="ReqTopTxt" />
+                            <PropertyValue Property="ValueListProperty" String="Text1" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+
+    <Annotations Target="ZSD_OD_LKU_SRV.zsd_lku_info/MillProductType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueListWithFixedValues" Bool="true" />
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                <PropertyValue Property="CollectionPath" String="ZsdShProductTypeSet" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="MillProductType" />
+                            <PropertyValue Property="ValueListProperty" String="ProductType" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Description" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+</edmx:Edmx>

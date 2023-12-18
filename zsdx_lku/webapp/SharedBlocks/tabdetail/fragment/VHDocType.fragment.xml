@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDocType"
+		title="Document Type"
+		items="{/ZsdShDocTypeAttaSet}"
+		search=".onVHSearchDocType"
+		confirm=".onVHCloseDocType"
+		cancel=".onVHCloseDocType">
+		<StandardListItem id="id_DocTypeList"
+			title="{Dokar}"
+			description="{Dartxt}" 
+			/>
+	</SelectDialog>
+</core:FragmentDefinition>
