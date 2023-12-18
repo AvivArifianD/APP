@@ -1,0 +1,201 @@
+<mvc:View controllerName="com.zhrxchangeshift.zhrxchangeshift.controller.CreateECShiftD" xmlns:semantic="sap.m.semantic" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:upload="sap.m.upload">
+    <semantic:FullscreenPage id="page" title="Create e-Change Shift Detail" showNavButton="true" navButtonPress=".onBackPress" busyIndicatorDelay="0" busy="{= ${create>/busy} || ${global>/isAssignmentLoading} }">
+        <semantic:content>
+            <VBox id="_IDGenVBox1" renderType="Bare">
+                <f:SimpleForm
+                    id="id_FormCreateH"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="e-Change Shift Header Info"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="1"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <!-- Org Unit -->
+                        <Label id="id_OrgehLab" text="Org.Unit" />
+                        <Text id="id_OrgUnit" text="{headerArray>/Zzorgeh} - {headerArray>/Zzorget}" />
+                        <!-- Org Unit Substitution -->
+                        <Label id="id_OrgsuLab" text="Org.Unit Subtitution" />
+                        <Text id="id_OrgSub" text="{headerArray>/Zzorgsu} - {headerArray>/Zzorgst}" />
+
+                        <!-- Hidden Fields -->
+                        <Text id="id_Orgeh" text="{headerArray>/Zzorgeh}" visible="false" />
+                        <Text id="id_Orgsu" text="{headerArray>/Zzorgsu}" visible="false" />
+                        <Text id="id_Persa" text="{headerArray>/Zzpersa}" visible="false" />
+                        <Text id="id_Btrtl" text="{headerArray>/Zzbtrtl}" visible="false" />
+                    </f:content>
+                </f:SimpleForm>
+
+                <f:Form id="id_FormCreateD" editable="true" layout="ResponsiveGridLayout" title="e-Change Shift Detail">
+                    <f:layout>
+                        <f:ResponsiveGridLayout
+                            id="_IDGenResponsiveGridLayout1"
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="4"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false"
+                        />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer2">
+                            <f:formElements>
+                                <f:FormElement id="id_ESPernr" label="Employee No.">
+                                    <f:fields>
+                                        <Input id="id_Pernr" placeholder="Fill Employee No." showValueHelp="true" valueHelpRequest=".onValueHelpRequestPer" required="true" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESDate" label="Substitution Date">
+                                    <DatePicker id="id_Edate" showFooter="true" valueFormat="dd.MM.yyyy" placeholder="dd.mm.yyyy" displayFormat="dd.MM.yyyy" required="true" />
+                                </f:FormElement>
+                                <f:FormElement id="id_ESVtart" label="Substitution Type">
+                                    <f:fields>
+                                        <ComboBox id="id_Vtart" showSecondaryValues="true" required="true" filterSecondaryValues="true" items="{ path: '/zhr_sh_vtartSet'}">
+                                            <core:ListItem id="id_ListItem1" key="{Vtart}" text="{Vtext}" additionalText="{Vtart}" />
+                                        </ComboBox>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESSubst" label="DWS Substitution">
+                                    <f:fields>
+                                        <ComboBox id="id_Subst" showSecondaryValues="true" required="true" filterSecondaryValues="true" items="{dwsSet>/data}">
+                                            <core:ListItem id="id_ListItem2" key="{dwsSet>Tprog}" text="{dwsSet>Ttext}" additionalText="{dwsSet>Tprog}"/>
+                                        </ComboBox>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESSubem" label="Substitute Employee">
+                                    <f:fields>
+                                        <Input id="id_Subem" showValueHelp="true" valueHelpRequest=".onValueHelpRequestSub" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESRmrks" label="Remarks">
+                                    <f:fields>
+                                        <Input id="id_Rmrks" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="_IDGenFormElement1">
+                                    <FlexBox id="_IDGenFlexBox1" alignItems="Stretch" justifyContent="End" width="100%">
+                                        <Button class="sapUiTinyMarginEnd" id="id_btnAdd" press="onAdd" text="Add" type="Emphasized" icon="sap-icon://add" />
+                                        <Button id="id_btnReset" press="onReset" text="Reset" type="Default" icon="sap-icon://reset" />
+                                    </FlexBox>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+
+                <f:SimpleForm id="id_ListFormD" title="e-Change Shift List Detail" editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                    <f:content>
+                        <Table
+                            id="id_splRequestTable"
+                            items="{chgList>/data}"
+                            fixedLayout="false"
+                            inset="false"
+                            itemPress="onItemPressed"
+                            busyIndicatorDelay="0"
+                            growing="true"
+                            growingThreshold="15"
+                            growingScrollToLoad="{= !${device>/system/desktop}}"
+                            visible="true"
+                            mode="Delete"
+                            delete="onItemDeleted"
+                            paste="onPaste"
+                        >
+                            <columns>
+                                <!--Employee No -->
+                                <Column id="id_colPernr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colPernrtxt" text="Employee No." />
+                                </Column>
+                                <!-- Employee Name -->
+                                <Column id="id_colEmpName" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEmpNametxt" text="Employee Name" />
+                                </Column>
+                                <!-- Date -->
+                                <Column id="id_colEdate" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEdatetxt" text="Substitution Date" />
+                                </Column>
+                                <!-- Substitution Type -->
+                                <Column id="id_colVtext" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colVtexttxt" text="Substitution Type" />
+                                </Column>
+                                <!-- DWS -->
+                                <Column id="id_colDws" width="9em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colDwstxt" text="DWS" />
+                                </Column>
+                                <!-- DWS Substitution -->
+                                <Column id="id_colSubst" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubsttxt" text="DWS Substitution" />
+                                </Column>
+                                <!-- Substitute Employee -->
+                                <Column id="id_colSubem" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubemtxt" text="Substitute Employee" />
+                                </Column>
+                                <!-- Substitute Employee name -->
+                                <Column id="id_colSubna" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubnatxt" text="Substitute Employee Name" />
+                                </Column>
+                                <!-- Remarks -->
+                                <Column id="id_colRmrks" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colRmrkstxt" text="Remarks" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Navigation" id="id_splRequestColumnListItem">
+                                    <cells>
+                                        <!--Employee No -->
+                                        <Text id="id_txtPernr" text="{chgList>Zzpernr}" />
+                                        <!-- Employee Name -->
+                                        <Text id="id_txtEmpName" text="{chgList>ZzpernrName}" />
+                                        <!-- Date -->
+                                        <Text id="id_txtEdate" text="{ constraints : {displayFormat : 'Date'},
+                                                                        path : 'chgList>Zzedate',
+                                                                        type : 'sap.ui.model.odata.type.DateTime'
+                                                                        }" />
+                                        <!-- Substitution Type -->
+                                        <Text id="id_txtVtext" text="{chgList>Zzvtart} - {chgList>Zzvtext}" />
+                                        <!-- DWS -->
+                                        <Text id="txtDws" text="{chgList>Zztprog} ( {chgList>FreeText} )" />
+                                        <!-- DWS Substitution -->
+                                        <Text id="txtSubst" text="{chgList>Zzsubst} ( {chgList>Msg} )" />
+                                        <!-- Substitute Employee -->
+                                        <Text id="txtSubem" text="{chgList>Zzsubem}" />
+                                        <!-- Substitute Employee Name-->
+                                        <Text id="txtSubna" text="{chgList>Zzsubna}" />
+                                        <!-- Remarks -->
+                                        <Text id="txtRmrks" text="{chgList>Zzrmrks}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </f:content>
+                </f:SimpleForm>
+
+                <f:SimpleForm id="id_ButtonFormD" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                    <FlexBox id="_IDGenFlexBox3" alignItems="Stretch" justifyContent="End" width="100%">
+                        <Button class="sapUiTinyMarginEnd" id="id_btnSubmit" press="onSubmit" text="Submit" type="Emphasized" />
+                        <Button id="id_btnSave" press="onSubmit" text="Save" type="Default" />
+                        <Button id="id_Cancel" press="onBackPress" text="Cancel" type="Transparent" />
+                    </FlexBox>
+                </f:SimpleForm>
+            </VBox>
+        </semantic:content>
+    </semantic:FullscreenPage>
+</mvc:View>

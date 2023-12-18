@@ -1,0 +1,210 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    controllerName="com.zhrxchangeshift.zhrxchangeshift.controller.MainChgItem"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    height="100%"
+>
+    <Page id="page" title="e-Change Shift Item">
+        <VBox id="_IDGenVBox1" width="100%">
+            <SegmentedButton id="id_butSegment" class="sapUiSmallMarginBottom">
+                <items>
+                    <SegmentedButtonItem id="id_ButHeader" icon="sap-icon://header" text="Go To Header Layout" key="header" press="onClick" />
+                </items>
+            </SegmentedButton>
+        </VBox>
+
+        <content>
+            <smartfilterbar:SmartFilterBar id="id_SmartFilterBar" entitySet="zhr_ecshift_iSet" useDateRangeType="true" persistencyKey="SmartFilter_Explored" smartVariant="true">
+                <smartfilterbar:layoutData>
+                    <FlexItemData id="id_FlexItemData1" shrinkFactor="0" />
+                </smartfilterbar:layoutData>
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="id_Docid" visibleInAdvancedArea="true" key="Zzdocid">
+                        <smartfilterbar:customControl>
+                            <MultiInput width="40%" id="idMultiDoc" suggestionItems="{
+                                    path: '/zhr_sh_docidSet'
+                                    }" valueHelpRequest="handleValueHelpDoc">
+                                <core:Item key="{Zzdocid}" text="{Zzdocid}" />
+                            </MultiInput>
+                        </smartfilterbar:customControl>
+                    </smartfilterbar:ControlConfiguration>
+                </smartfilterbar:controlConfiguration>
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="id_Pernr" visibleInAdvancedArea="true" key="Zzpernr">
+                        <smartfilterbar:customControl>
+                            <MultiInput width="40%" id="idMultiPer" suggestionItems="{
+                                    path: '/zhr_sh_pernrvhSet'
+                                    }" valueHelpRequest="handleValueHelpPer2">
+                                <core:Item key="{Pernr}" text="{Pernr} - {Cname}" />
+                            </MultiInput>
+                        </smartfilterbar:customControl>
+                    </smartfilterbar:ControlConfiguration>
+                </smartfilterbar:controlConfiguration>
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="id_Edate" visibleInAdvancedArea="true" key="Zzedate" />
+                </smartfilterbar:controlConfiguration>
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="id_CreateDate" visibleInAdvancedArea="true" key="CreateDate" />
+                </smartfilterbar:controlConfiguration>
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="id_EstatTxt" visibleInAdvancedArea="true" key="ZzestatTxt">
+                        <smartfilterbar:customControl>
+                            <MultiComboBox id="Id_ComboZzestatText" app:hasValue="false" selectionChange="customFieldChange" items="{ path: '/zhr_sh_estatSet'}">
+                                <core:ListItem id="id_ListItem3" key="{StatDesc}" text="{StatDesc}" />
+                            </MultiComboBox>
+                        </smartfilterbar:customControl>
+                    </smartfilterbar:ControlConfiguration>
+                </smartfilterbar:controlConfiguration>
+            </smartfilterbar:SmartFilterBar>
+            <!-- <ScrollContainer id="scrollBLSC" height="100em" width="100em" vertical="true" focusable="true"> -->
+            <smarttable:SmartTable
+                id="id_SmartTable"
+                entitySet="zhr_ecshift_iSet"
+                beforeRebindTable="onBeforeRebindTable"
+                smartFilterId="id_SmartFilterBar"
+                tableType="ResponsiveTable"
+                header="e-Change Shift Item"
+                showRowCount="true"
+                enableAutoBinding="true"
+                persistencyKey="SmartTableAnalytical_Explored"
+                enableAutoColumnWidth="true"
+                class="sapUiResponsiveContentPadding"
+                ignoredFields="Zzsecno,Zzpersa,Zzorgeh,Zzbtrtl,ZzestatTmp,Zzbgjob,CreateName,ChangeName,Action,Status,Msg,Indicator,FreeText,Flag,Zzorgsu,Zzestat,Zzbgjob,Zzreque"
+            >
+                <!-- layout data used to make the table growing but the filter bar fixed -->
+
+                <Table id="id_Table" fixedLayout="Strict" mode="None" growing="true" growingScrollToLoad="false" growingThreshold="20">
+                    <columns>
+                        <Column id="Zzdocid" hAlign="Begin" width="180px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "Zzdocid", "columnIndex": 1, "leadingProperty": "Zzdocid", "sortProperty": "Zzdocid", "filterProperty": "Zzdocid", "additionalProperty": "Zzdocid"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzdocid/@sap:label}" />
+                        </Column>
+                        <Column id="Zzpernr" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "Zzpernr", "columnIndex": 2, "leadingProperty": "Zzpernr", "sortProperty": "Zzpernr", "filterProperty": "Zzpernr", "additionalProperty": "Zzpernr"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzpernr/@sap:label}" />
+                        </Column>
+                        <Column id="ZzpernrName" hAlign="Begin" width="130px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "ZzpernrName", "columnIndex": 3, "leadingProperty": "ZzpernrName", "sortProperty": "ZzpernrName", "filterProperty": "ZzpernrName", "additionalProperty": "ZzpernrName"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/ZzpernrName/@sap:label}" />
+                        </Column>
+                        <Column id="Zzedate" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='\{"columnKey": "Zzedate", "columnIndex": 4, "leadingProperty": "Zzedate", "sortProperty": "Zzedate", "filterProperty": "Zzedate", "additionalProperty": "Zzedate", "type":"date"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzedate/@sap:label}" />
+                        </Column>
+                        <Column id="Zztprog" hAlign="Begin" width="80px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "Zztprog", "columnIndex": 5, "leadingProperty": "Zztprog", "sortProperty": "Zztprog", "filterProperty": "Zztprog", "additionalProperty": "Zztprog"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zztprog/@sap:label}" />
+                        </Column>
+                        <Column id="Zzbegzt" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='\{"columnKey": "Zzbegzt", "columnIndex": 6, "leadingProperty": "Zzbegzt", "sortProperty": "Zzbegzt", "filterProperty": "Zzbegzt", "additionalProperty": "Zzbegzt", "type":"time"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzbegzt/@sap:label}" />
+                        </Column>
+                        <Column id="Zzendzt" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='\{"columnKey": "Zzendzt", "columnIndex": 7, "leadingProperty": "Zzendzt", "sortProperty": "Zzendzt", "filterProperty": "Zzendzt", "additionalProperty": "Zzendzt", "type":"time"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzendzt/@sap:label}" />
+                        </Column>
+                        <Column id="Zzsubst" hAlign="Begin" width="80px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "Zzsubst", "columnIndex": 8, "leadingProperty": "Zzsubst", "sortProperty": "Zzsubst", "filterProperty": "Zzsubst", "additionalProperty": "Zzsubst"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzsubst/@sap:label}" />
+                        </Column>
+                        <Column id="Zzsubeg" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='\{"columnKey": "Zzsubeg", "columnIndex": 9, "leadingProperty": "Zzsubeg", "sortProperty": "Zzsubeg", "filterProperty": "Zzsubeg", "additionalProperty": "Zzsubeg", "type":"time"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzsubeg/@sap:label}" />
+                        </Column>
+                        <Column id="Zzsuend" hAlign="Begin" width="110px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='\{"columnKey": "Zzsuend", "columnIndex": 10, "leadingProperty": "Zzsuend", "sortProperty": "Zzsuend", "filterProperty": "Zzsuend", "additionalProperty": "Zzsuend", "type":"time"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/Zzsuend/@sap:label}" />
+                        </Column>
+                        <Column id="ZzestatTxt" hAlign="Begin" width="120px">
+                            <customData>
+                                <core:CustomData key="p13nData" value='{"columnKey": "ZzestatTxt", "columnIndex": 11, "leadingProperty": "ZzestatTxt", "sortProperty": "ZzestatTxt", "filterProperty": "ZzestatTxt", "additionalProperty": "ZzestatTxt"}' />
+                            </customData>
+                            <Text text="{/#zhr_ecshift_i/ZzestatTxt/@sap:label}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{Zzdocid}" />
+                            </cells>
+                            <cells>
+                                <Text text="{Zzpernr}" />
+                            </cells>
+                            <cells>
+                                <Text text="{ZzpernrName}" />
+                            </cells>
+                            <cells>
+                                <Text text="{path:'Zzedate', type:'sap.ui.model.odata.type.DateTime', constraints: {displayFormat: 'Date'}}" />
+                            </cells>
+                            <cells>
+                                <Text text="{Zztprog}" />
+                            </cells>
+                            <cells>
+                                <Text text="{path:'Zzbegzt', type: 'sap.ui.model.odata.type.Time',
+				formatOptions: {
+					style: 'medium'
+				},
+                'pattern': 'hh-mm-ss'}" />
+                            </cells>
+                            <cells>
+                                <Text text="{path:'Zzendzt', type: 'sap.ui.model.odata.type.Time',
+				formatOptions: {
+					style: 'medium'
+				}}" />
+                            </cells>
+                            <cells>
+                                <Text text="{Zzsubst}" />
+                            </cells>
+                            <cells>
+                                <Text text="{path:'Zzsubeg', type: 'sap.ui.model.odata.type.Time',
+				formatOptions: {
+					style: 'medium'
+				}}" />
+                            </cells>
+                            <cells>
+                                <Text text="{path:'Zzsuend', type: 'sap.ui.model.odata.type.Time',
+				formatOptions: {
+					style: 'medium'
+				}}" />
+                            </cells>
+                            <cells>
+                                <Text text="{ZzestatTxt}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <smarttable:layoutData>
+                    <FlexItemData id="id_FlexItemData2" growFactor="1" baseSize="0em" />
+                </smarttable:layoutData>
+            </smarttable:SmartTable>
+            <!-- </ScrollContainer>    -->
+        </content>
+    </Page>
+</mvc:View>

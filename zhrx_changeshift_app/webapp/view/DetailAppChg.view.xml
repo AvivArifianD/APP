@@ -1,0 +1,131 @@
+<mvc:View
+    controllerName="com.zhrxchangeshiftapp.zhrxchangeshiftapp.controller.DetailAppChg"
+    xmlns:plugins="sap.ui.table.plugins"
+    xmlns:t="sap.ui.table"
+    xmlns:semantic="sap.m.semantic"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <semantic:FullscreenPage id="page">
+        <semantic:content>
+            <!--<VBox renderType="Bare" class="sapUiResponsiveMargin">-->
+            <VBox id="_IDGenVBox1" renderType="Bare">
+                <f:SimpleForm
+                    id="id_Header"
+                    editable="false"
+                    layout="ColumnLayout"
+                    title="Ordinary Approval"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <Label id="id_DocidLab" text="Document ID" />
+                        <Text id="id_Docid" text="{header>/Zzdocid}" />
+                        <Label id="id_OrgehLab" text="Org. Unit" />
+                        <Text id="id_OrgUnit" text="{header>/Zzorgeh} - {header>/Zzorget}" />
+                        <Label id="id_OrgsuLab" text="Org. Unit Subs." />
+                        <Text id="id_Orgst" text="{header>/Zzorgsu} - {header>/Zzorgst}" />
+                        <!-- hidden field -->
+                        <Text id="id_Dstat" text="{header>/Zzdstat}" visible="false" />
+                    </f:content>
+                </f:SimpleForm>
+
+                <f:SimpleForm id="id_ListFormD" editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                    <f:content>
+                        <Table id="id_splRequestTable" items="{chgList>/data}" fixedLayout="false" inset="false" busyIndicatorDelay="0" growing="true" growingThreshold="15" growingScrollToLoad="{= !${device>/system/desktop}}" visible="true">
+                            <columns>
+                                <!-- Status -->
+                                <Column id="id_Status" width="2em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_Statustxt" text="Status" visible="false" />
+                                </Column>
+                                <!--Employee No -->
+                                <Column id="id_colPernr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colPernrtxt" text="Employee No." />
+                                </Column>
+                                <!-- Employee Name -->
+                                <Column id="id_colEmpName" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEmpNametxt" text="Employee Name" />
+                                </Column>
+                                <!-- Date -->
+                                <Column id="id_colEdate" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEdatetxt" text="Substitution Date" />
+                                </Column>
+                                <!-- Substitution Type -->
+                                <Column id="id_colVtext" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colVtexttxt" text="Substitution Type" />
+                                </Column>
+                                <!-- DWS -->
+                                <Column id="id_colDws" width="9em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colDwstxt" text="DWS" />
+                                </Column>
+                                <!-- DWS Substitution -->
+                                <Column id="id_colSubst" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubsttxt" text="DWS Substitution" />
+                                </Column>
+                                <!-- Substitute Employee -->
+                                <Column id="id_colSubem" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubemtxt" text="Substitute Employee" />
+                                </Column>
+                                <!-- Substitute Employee name -->
+                                <Column id="id_colSubna" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colSubnatxt" text="Substitute Employee Name" />
+                                </Column>
+                                <!-- Remarks -->
+                                <Column id="id_colRmrks" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colRmrkstxt" text="Remarks" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="id_splRequestColumnListItem">
+                                    <cells>
+                                        <CheckBox id="id_selZzestat" selected="{path: 'chgList>FreeText',
+								type: 'sap.ui.model.type.String'
+                                }" select="onSelectionChange" />
+                                        <!--Employee No -->
+                                        <Text id="id_txtPernr" text="{chgList>Zzpernr}" />
+                                        <!-- Employee Name -->
+                                        <Text id="id_txtEmpName" text="{chgList>ZzpernrName}" />
+                                        <!-- Date -->
+                                        <Text
+                                            id="id_txtEdate"
+                                            text="{ constraints : {displayFormat : 'Date'},
+                                                                        path : 'chgList>Zzedate',
+                                                                        type : 'sap.ui.model.odata.type.DateTime'
+                                                                        }"
+                                        />
+                                        <!-- Substitution Type -->
+                                        <Text id="id_txtVtext" text="{chgList>Zzvtart} - {chgList>Zzvtext}" />
+                                        <!-- DWS -->
+                                        <Text id="txtDws" text="{chgList>Zztprog} ( {chgList>Msg} )" />
+                                        <!-- DWS Substitution -->
+                                        <Text id="txtSubst" text="{chgList>Zzsubst} ( {chgList>ZzsubstTxt} - {chgList>ZztprogTxt} )" />
+                                        <!-- Substitute Employee -->
+                                        <Text id="txtSubem" text="{chgList>Zzsubem}" />
+                                        <!-- Substitute Employee Name-->
+                                        <Text id="txtSubna" text="{chgList>Zzsubna}" />
+                                        <!-- Remarks -->
+                                        <Text id="txtRmrks" text="{chgList>Zzrmrks}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </semantic:content>
+    </semantic:FullscreenPage>
+</mvc:View>

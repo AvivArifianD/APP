@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectSubem"
+		title="Substitute Employee"
+		items="{/zhr_sh_pernrSet}"
+		search=".onValueHelpSearchSub"
+		confirm=".onValueHelpCloseSub" 
+		cancel=".onValueHelpCloseSub">
+		<StandardListItem id="id_SubemList"
+			title="{Pernr}"
+			description="{Cname}" />
+	</SelectDialog>
+</core:FragmentDefinition>

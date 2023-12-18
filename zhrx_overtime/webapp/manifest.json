@@ -1,0 +1,210 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.zhrxovertime.zhrxovertime",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.9.0",
+            "toolsId": "adab6455-037c-4308-95d3-efba22c4978a"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZHR_OD_EOVTIME_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-zhrxovertime-zhrxovertime-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "zhr_so_overtime",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.110.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.zhrxovertime.zhrxovertime.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.zhrxovertime.zhrxovertime.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMainOvertime",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetMainOvertime"
+                    ]
+                },
+                {
+                    "name": "CreateOvertimeH",
+                    "pattern": "CreateOvertimeH",
+                    "target": [
+                        "TargetCreateOvertimeH"
+                    ]
+                },
+                {
+                    "name": "CreateOvertimeD",
+                    "pattern": "CreateOvertimeD/{data}",
+                    "target": [
+                        "TargetCreateOvertimeD"
+                    ]
+                },
+                {
+                    "name": "DetailOvertime",
+                    "pattern": "DetailOvertime/{DocumentID}",
+                    "target": [
+                        "TargetDetailOvertime"
+                    ]
+                },
+                {
+                    "name": "UpdateOvertime",
+                    "pattern": "UpdateOvertime/{DocumentID}",
+                    "target": [
+                        "TargetUpdateOvertime"
+                    ]
+                },
+                {
+                    "name": "MainOvtItem",
+                    "pattern": "MainOvtItem",
+                    "target": [
+                        "TargetMainOvtItem"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetMainOvertime": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "MainOvertime",
+                    "viewName": "MainOvertime"
+                },
+                "TargetCreateOvertimeH": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateOvertimeH",
+                    "viewName": "CreateOvertimeH"
+                },
+                "TargetCreateOvertimeD": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateOvertimeD",
+                    "viewName": "CreateOvertimeD"
+                },
+                "TargetDetailOvertime": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "DetailOvertime",
+                    "viewName": "DetailOvertime"
+                },
+                "TargetUpdateOvertime": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "UpdateOvertime",
+                    "viewName": "UpdateOvertime"
+                },
+                "TargetMainOvtItem": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "MainOvtItem",
+                    "viewName": "MainOvtItem"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.zhrxovertime.zhrxovertime.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

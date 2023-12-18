@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="valueHelpDialogDoc"
+		title="Document ID"
+		items="{/zhr_sh_docidSet}"
+		search="_handleValueHelpSearchDoc"
+		confirm="_handleValueHelpCloseDoc"
+		cancel="_handleValueHelpCloseDoc"
+		multiSelect="true"
+		>
+		<StandardListItem
+			title="{Zzdocid}" />
+	</SelectDialog>
+</core:FragmentDefinition>

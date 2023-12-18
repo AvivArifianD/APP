@@ -1,0 +1,327 @@
+<mvc:View
+    controllerName="com.zhrxovertime.zhrxovertime.controller.UpdateOvertime"
+    xmlns:t="sap.ui.table"
+    xmlns:semantic="sap.m.semantic"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:upload="sap.m.upload"
+>
+    <Page id="page" title="Update Document Details" showNavButton="true" navButtonPress=".onBackPress">
+        <VBox id="_IDGenVBox1" renderType="Bare">
+            <f:SimpleForm
+                id="id_Header"
+                editable="false"
+                layout="ColumnLayout"
+                title="e-Overtime Header Info"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label id="id_DocidLab" text="Document ID" />
+                    <Text id="id_Docid" text="{header>/Zzdocid}" />
+                    <Label id="id_DocStatusLab" text="Document Latest Status" />
+                    <Text id="id_DocStatus" text="{header>/ZzdstatText}" />
+                    <Label id="id_ApproverLab" text="Latest Approval" />
+                    <Text id="id_Approver" text="{header>/ZzlatestApp}" />
+                    <Label id="id_ReqLab" text="Requestor" />
+                    <Text id="id_Req" text="{header>/ZzrequeName}" />
+                    <Label id="id_OrgehLab" text="Org. Unit" />
+                    <Text id="id_OrgUnit" text="{header>/Zzorgeh} - {header>/Zzorget}" />
+                    <Label id="id_OttypLab" text="Overtime Type" />
+                    <Text id="id_OtypeDesc" text="{header>/Zzottyp} - {header>/ZzottypTxt}" />
+                    <Label id="id_ODateLab" text="Overtime Date" />
+                    <Text id="id_ODate" text="{ constraints : {displayFormat : 'Date'},
+                                                                path : 'header>/Zzedate',
+                                                                type : 'sap.ui.model.odata.type.DateTime'
+                                                                }" />
+                    <Label id="id_CDateLab" text="Create Date" />
+                    <Text
+                        id="id_CDate"
+                        text="{ constraints : {displayFormat : 'Date'},
+                                                                path : 'header>/CreateDate',
+                                                                type : 'sap.ui.model.odata.type.DateTime'
+                                                                }"
+                    />
+                    <Label id="id_CTimeLab" text="Create Time" />
+                    <Text id="id_CTime" text="{header>/FreeText}" />
+                    <Label id="id_CByLab" text="Create By" />
+                    <Text id="id_CBy" text="{header>/CreateBy}" />
+                    <Label id="id_HDateLab" text="Change Date" />
+                    <Text
+                        id="id_HDate"
+                        text="{ constraints : {displayFormat : 'Date'},
+                                                                path : 'header>/ChangeDate',
+                                                                type : 'sap.ui.model.odata.type.DateTime'
+                                              }"
+                    />
+                    <Label id="id_HTimeLab" text="Change Time" />
+                    <Text id="id_HTime" text="{header>/Msg}" />
+                    <Label id="id_HByLab" text="Change By" />
+                    <Text id="id_HBy" text="{header>/ChangeBy}" />
+
+                    <!-- Hidden Fields -->
+                    <Text id="id_Otype" text="{header>/Zzottyp}" visible="false" />
+                    <Text id="id_Orgeh" text="{header>/Zzorgeh}" visible="false" />
+                    <Text id="id_Edate" text="{header>/Zzedate}" visible="false" />
+                    <Text id="id_Persa" text="{header>/Zzpersa}" visible="false" />
+                    <Text id="id_Btrtl" text="{header>/Zzbtrtl}" visible="false" />
+                </f:content>
+            </f:SimpleForm>
+
+            <f:Form id="id_FormCreateD" editable="true" layout="ResponsiveGridLayout" title="e-Overtime Detail">
+                <f:layout>
+                    <f:ResponsiveGridLayout id="_IDGenResponsiveGridLayout1" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer2">
+                        <f:formElements>
+                            <f:FormElement id="id_ESPernr" label="Employee No.">
+                                <f:fields>
+                                    <Input id="id_Pernr" placeholder="Fill Employee No." showValueHelp="true" valueHelpRequest=".onValueHelpRequestPer" required="true" change="onPernrChg" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="id_ESAwart" label="Overtime Reason Code">
+                                <f:fields>
+                                    <ComboBox id="id_Awart" showSecondaryValues="true" required="true" filterSecondaryValues="true" items="{ path: '/zhr_sh_awartSet'}">
+                                        <core:ListItem id="id_ListItem1" key="{Awart}" text="{Atext}" additionalText="{Awart}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="id_ESCompt" label="Compensation Type">
+                                <f:fields>
+                                    <ComboBox id="id_Compt" showSecondaryValues="true" required="true" filterSecondaryValues="true" items="{Zzcompt>/data}">
+                                        <core:ListItem id="id_ListItem3" key="{Zzcompt>Zzcompt}" text="{Zzcompt>Zzcompt}" />
+                                    </ComboBox>
+                                    <!-- <Input id="id_Compt" placeholder="Fill Compensation Type" required="true" showValueHelp="true" valueHelpRequest=".onValueHelpRequestCom" /> -->
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="id_ESKostl" label="Charge To">
+                                <f:fields>
+                                    <ComboBox id="id_Kostl" showSecondaryValues="true" selectedKey="{header>/FreeText2}" filterSecondaryValues="true" items="{ path: '/zhr_sh_orgunitSet'}">
+                                        <core:ListItem id="id_ListItem2" key="{Orgeh}" text="{Orgtx}" additionalText="{Orgeh}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="id_ESTime" label="Overtime Duration">
+                                <TimePicker id="id_Otbeg" minutesStep="30" change="onTimesChgB" valueFormat="HH:mm" displayFormat="HH:mm" support2400="true" placeholder="Start time. HH:mm" required="true" />
+                                <TimePicker id="id_Otend" minutesStep="30" change="onTimesChgE" valueFormat="HH:mm" displayFormat="HH:mm" support2400="true" placeholder="End time. HH:mm" required="true" />
+                            </f:FormElement>
+                            <f:FormElement id="id_ESRmrks" label="Remarks">
+                                <f:fields>
+                                    <Input id="id_Rmrks" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="id_ESSecno" label="Sequence No" visible="false">
+                                <f:fields>
+                                    <Input id="id_Secno" visible="false" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement id="_IDGenFormElement1">
+                                <FlexBox id="_IDGenFlexBox1" alignItems="Stretch" justifyContent="End" width="100%">
+                                    <Button class="sapUiTinyMarginEnd" id="id_btnAdd" press="onAdd" text="Add" type="Emphasized" icon="sap-icon://add" />
+                                    <Button id="id_btnReset" press="onReset" text="Reset" type="Default" icon="sap-icon://reset" />
+                                </FlexBox>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <f:SimpleForm id="id_ListFormD" title="e-Overtime List Detail" editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                <f:content>
+                    <Table
+                        id="id_splRequestTable"
+                        items="{ovtList>/data}"
+                        fixedLayout="false"
+                        inset="false"
+                        itemPress="onItemPressed"
+                        busyIndicatorDelay="0"
+                        growing="true"
+                        growingThreshold="15"
+                        growingScrollToLoad="{= !${device>/system/desktop}}"
+                        visible="true"
+                        mode="Delete"
+                        delete="onItemDeleted"
+                        paste="onPaste"
+                    >
+                        <columns>
+                            <!--Employee No -->
+                            <Column id="id_colPernr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colPernrtxt" text="Employee No." />
+                            </Column>
+                            <!-- Employee Name -->
+                            <Column id="id_colEmpName" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colEmpNametxt" text="Employee Name" />
+                            </Column>
+                            <!-- Overtime Reason -->
+                            <Column id="id_colAtext" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colAtexttxt" text="Overtime Reason" />
+                            </Column>
+                            <!-- Compensation Type -->
+                            <Column id="id_colCompt" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colCompttxt" text="Compensation Type" />
+                            </Column>
+                            <!-- Charge To -->
+                            <Column id="id_colKostl" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colKostlxt" text="Charge To" />
+                            </Column>
+                            <!-- Start Time -->
+                            <Column id="id_colOtbeg" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colOtbegtxt" text="Start Time" />
+                            </Column>
+                            <!-- End Time -->
+                            <Column id="id_colOtend" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colOtendtxt" text="End Time" />
+                            </Column>
+                            <!-- DWS -->
+                            <Column id="id_colDws" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colDwslxt" text="DWS" />
+                            </Column>
+                            <!-- OT Hours -->
+                            <Column id="id_colOth" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colOthtxt" text="OT Hours" />
+                            </Column>
+                            <!-- weekly -->
+                            <Column id="id_colAkumW" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colAkumWtxt" text="Accumulation Weekly" />
+                            </Column>
+                            <!-- monthly -->
+                            <Column id="id_colAkum" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colAkumtxt" text="Accumulation Monthly" />
+                            </Column>
+                            <!-- Remarks -->
+                            <Column id="id_colRmrks" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colRmrkstxt" text="Remarks" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem type="Navigation" id="id_splRequestColumnListItem">
+                                <cells>
+                                    <!--Employee No -->
+                                    <Text id="id_txtPernr" text="{ovtList>Zzpernr}" />
+                                    <!-- Employee Name -->
+                                    <Text id="id_txtEmpName" text="{ovtList>ZzpernrName}" />
+                                    <!-- Overtime Reason -->
+                                    <Text id="id_txtAtext" text="{ovtList>Zzatext}" />
+                                    <!-- Compensation Type -->
+                                    <Text id="id_txtCompt" text="{ovtList>Zzcompt}" />
+                                    <!-- Charge To -->
+                                    <Text id="txtKostl" text="{ovtList>ZzkostlTxt}" />
+                                    <!-- Start Time -->
+                                    <Text id="txtOtbeg" text="{ovtList>FreeText2}" />
+                                    <!-- End Time -->
+                                    <Text id="txtOtend" text="{ovtList>FreeText3}" />
+                                    <!-- DWS -->
+                                    <Text id="txtDws" text="{ovtList>Zztprog} ( {ovtList>FreeText} )" />
+                                    <!-- OT Hours -->
+                                    <Text id="txtOth" text="{ovtList>Zzothrs}" />
+                                    <!-- Weekly -->
+                                    <Text id="txtAkumW" text="{ovtList>ZzqinacWeek}" />
+                                    <!-- Monthly -->
+                                    <Text id="txtAkum" text="{ovtList>Zzqinac}" />
+                                    <!-- Remarks -->
+                                    <Text id="txtRmrks" text="{ovtList>Zzrmrks}" />
+                                    <!-- Hidden Fields -->
+                                    <Text id="txtSecno" text="{ovtList>Zzsecno}" visible="false" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </f:content>
+            </f:SimpleForm>
+            <f:SimpleForm id="id_ListFormA" title="Attachment" editable="true" layout="ResponsiveGridLayout" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+                <!-- Attachment -->
+                <Label id="id_AttachLab" text="Attachment" vAlign="Bottom" textAlign="Begin" />
+                <u:FileUploader id="id_Attach" iconOnly="true" buttonOnly="false" icon="sap-icon://attachment" buttonText="Browse" tooltip="Upload PDF File" typeMissmatch="onHandleType" change="onHandleSelectFile" fileType="pdf" />
+            </f:SimpleForm>
+
+            <f:SimpleForm
+                id="id_FormAttachment"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Table
+                        headerText="List Attachments"
+                        id="id_AttachTable"
+                        items="{ovtListAttach>/data}"
+                        fixedLayout="false"
+                        inset="false"
+                        busyIndicatorDelay="0"
+                        growing="true"
+                        growingThreshold="15"
+                        growingScrollToLoad="{= !${device>/system/desktop}}"
+                        visible="true"
+                        mode="Delete"
+                        delete="onItemDeletedAttach"
+                        itemPress="onItemPressedAtta"
+                    >
+                        <columns>
+                            <!--Icon-->
+                            <Column id="id_colImage" width="3em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colTextImage" text="" />
+                            </Column>
+                            <!--File Name -->
+                            <Column id="id_colName" width="11em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colTextName" text="File Name" />
+                            </Column>
+                            <!-- Mime Type-->
+                            <Column id="id_colMime" width="6em" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="id_colTextMime" text="Mime Type" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem type="Navigation" id="id_AttachColumnListItem">
+                                <cells>
+                                    <!--Icon -->
+                                    <core:Icon id="_IDGenIcon1" src="sap-icon://pdf-attachment" color="#007bff" />
+                                    <!--File Name -->
+                                    <Text id="id_Filename" text="{ovtListAttach>Filename}" />
+                                    <!-- Mime Type-->
+                                    <Text id="id_Filetype" text="{ovtListAttach>Filetype}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <content>
+            <f:SimpleForm id="id_ButtonFormD" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                <FlexBox id="_IDGenFlexBox3" alignItems="Stretch" justifyContent="End" width="100%">
+                    <Button class="sapUiTinyMarginEnd" id="id_btnSubmit" press="onSubmit" text="Submit" type="Emphasized" />
+                    <Button id="id_btnSave" press="onSubmit" text="Save" type="Default" />
+                    <Button id="id_Cancel" press="onBackPress" text="Cancel" type="Transparent" />
+                </FlexBox>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

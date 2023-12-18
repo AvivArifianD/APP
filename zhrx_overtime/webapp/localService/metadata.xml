@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZHR_OD_EOVTIME_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="zhr_ovtime_h" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzdocid"/>
+                </Key>
+                <Property Name="FreeText2" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzapti1" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 1"/>
+                <Property Name="Zzapti2" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 2"/>
+                <Property Name="ZzothrsG" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="OT Hours"/>
+                <Property Name="Zzapti3" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 3"/>
+                <Property Name="Zzdocid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Document ID"/>
+                <Property Name="Zzapti4" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 4"/>
+                <Property Name="ZzqgracDay" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Grp Daily"/>
+                <Property Name="Zzapti5" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 5"/>
+                <Property Name="ZzqgracWeek" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Grp Weekly"/>
+                <Property Name="Zzapti6" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time Approver 6"/>
+                <Property Name="Zzorgeh" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+                <Property Name="Zzorget" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Org. Unit Text"/>
+                <Property Name="Zzedate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Overtime Date"/>
+                <Property Name="Zzpersa" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Personnel area"/>
+                <Property Name="Zzbtrtl" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Pers. subarea"/>
+                <Property Name="Zzottyp" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Overtime Type"/>
+                <Property Name="ZzottypTxt" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Overtime Type Text"/>
+                <Property Name="Zzreque" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Requestor"/>
+                <Property Name="ZzrequeSn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Requestor SN"/>
+                <Property Name="ZzrequeName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Requestor Name"/>
+                <Property Name="Zzdstat" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Document Status Code"/>
+                <Property Name="ZzdstatText" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Document Latest Status"/>
+                <Property Name="Zzaprd1" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 1"/>
+                <Property Name="Zzaprd1Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 1"/>
+                <Property Name="Zzaprn1" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 1"/>
+                <Property Name="Zzapdt1" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 1"/>
+                <Property Name="Zzaprd2" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 2"/>
+                <Property Name="Zzaprd2Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 2"/>
+                <Property Name="Zzaprn2" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 2"/>
+                <Property Name="Zzapdt2" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 2"/>
+                <Property Name="Zzaprd3" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 3"/>
+                <Property Name="Zzaprd3Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 3"/>
+                <Property Name="Zzaprn3" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 3"/>
+                <Property Name="Zzapdt3" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 3"/>
+                <Property Name="Zzaprd4" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 4"/>
+                <Property Name="Zzaprd4Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 4"/>
+                <Property Name="Zzaprn4" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 4"/>
+                <Property Name="Zzapdt4" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 4"/>
+                <Property Name="Zzaprd5" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 5"/>
+                <Property Name="Zzaprd5Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 5"/>
+                <Property Name="Zzaprn5" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 5"/>
+                <Property Name="Zzapdt5" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 5"/>
+                <Property Name="Zzaprd6" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Approver's ID 6"/>
+                <Property Name="Zzaprd6Sn" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Approver's ID SN 6"/>
+                <Property Name="Zzaprn6" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Name Approver 6"/>
+                <Property Name="Zzapdt6" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date Approver 6"/>
+                <Property Name="Zzqgrac" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Grp Monthly"/>
+                <Property Name="CreateBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Created Name"/>
+                <Property Name="ChangeBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Changed Name"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Created Doc on"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Created Time"/>
+                <Property Name="CreateName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Changed Doc. on"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time of change"/>
+                <Property Name="ChangeName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By"/>
+                <Property Name="Action" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Action" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Status" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Msg" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Indicator" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Indicator" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeText" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flag" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZzlatestApp" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Latest Approval"/>
+                <NavigationProperty Name="OvtHeader_to_OvtItem" Relationship="ZHR_OD_EOVTIME_SRV.OvtHeader_to_OvtItem" FromRole="FromRole_OvtHeader_to_OvtItem" ToRole="ToRole_OvtHeader_to_OvtItem"/>
+                <NavigationProperty Name="OvtHeader_to_OvtAttach" Relationship="ZHR_OD_EOVTIME_SRV.OvtHeader_to_OvtAttach" FromRole="FromRole_OvtHeader_to_OvtAttach" ToRole="ToRole_OvtHeader_to_OvtAttach"/>
+            </EntityType>
+            <EntityType Name="zhr_ovtime_i" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzdocid"/>
+                    <PropertyRef Name="Zzpernr"/>
+                    <PropertyRef Name="Zzsecno"/>
+                </Key>
+                <Property Name="FreeText1" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZzbgjobTxt" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Post to Infotype"/>
+                <Property Name="Zzactst" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Actual Start OT" sap:updatable="false"/>
+                <Property Name="Zzacten" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Actual End OT"/>
+                <Property Name="ZzqinacDay" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Indi. Daily"/>
+                <Property Name="Zzacthr" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Actual OT Hours"/>
+                <Property Name="Zzdocid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Document ID"/>
+                <Property Name="Zzposti" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Post Time"/>
+                <Property Name="ZzqinacWeek" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Indi. Weekly"/>
+                <Property Name="FreeText2" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzrewle" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Reward Leave Amount"/>
+                <Property Name="Zzpernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No."/>
+                <Property Name="FreeText3" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzsecno" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="IT record no." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZzpernrName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Employee Name"/>
+                <Property Name="Zzawart" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Overtime Reason Code"/>
+                <Property Name="Zzatext" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Overtime Reason text"/>
+                <Property Name="Zzcompt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Compensation Type"/>
+                <Property Name="Zzkostl" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Charge To OU Code"/>
+                <Property Name="ZzkostlTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Charge To OU Text"/>
+                <Property Name="Zzotbeg" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Start Time"/>
+                <Property Name="Zzotend" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="End Time"/>
+                <Property Name="Zztprog" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="DWS Type"/>
+                <Property Name="Zzbegzt" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="DWS In"/>
+                <Property Name="Zzendzt" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="DWS Out"/>
+                <Property Name="Zzothrs" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="OT Hours"/>
+                <Property Name="Zzqinac" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="Quota Acc. Indi. Monthly"/>
+                <Property Name="Zzrmrks" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Remarks"/>
+                <Property Name="Zzestat" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Employee Doc. Stat. Code"/>
+                <Property Name="ZzestatTxt" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Employee Doc. Stat. Text"/>
+                <Property Name="ZzestatTmp" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flagging Employee Status"/>
+                <Property Name="Zzbgjob" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Post to Infotype" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzerror" Type="Edm.String" MaxLength="250" sap:unicode="false" sap:label="Error Message"/>
+                <Property Name="CreateBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Created By"/>
+                <Property Name="ChangeBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Changed By"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Created on"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Created Time"/>
+                <Property Name="CreateName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created Namr"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Changed On"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time of change"/>
+                <Property Name="ChangeName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed Name"/>
+                <Property Name="Action" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Action" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Status" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Msg" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Indicator" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Indicator" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeText" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flag" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzorgeh" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Org. Unit" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzpersa" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Personnel area" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzbtrtl" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Pers. subarea" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzedate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Overtime Date"/>
+            </EntityType>
+            <EntityType Name="zhr_ovtime_attachment" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzdocid"/>
+                    <PropertyRef Name="Fileid"/>
+                </Key>
+                <Property Name="Zzdocid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Document ID"/>
+                <Property Name="Fileid" Type="Edm.String" Nullable="false" MaxLength="46" sap:unicode="false" sap:label="File ID"/>
+                <Property Name="Filetype" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="File Type"/>
+                <Property Name="Filename" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="File Name"/>
+                <Property Name="CreateBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Create By"/>
+                <Property Name="ChangeBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Change By"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created on"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time"/>
+                <Property Name="CreateName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Changed On"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time of change"/>
+                <Property Name="ChangeName" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By"/>
+                <Property Name="Fileurl" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="URL String"/>
+                <Property Name="Action" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Action"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Status"/>
+                <Property Name="Msg" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message Text"/>
+                <Property Name="Indicator" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Indicator"/>
+                <Property Name="FreeText" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Text"/>
+                <Property Name="Attachment" Type="Edm.Binary" sap:unicode="false" sap:label="Attachment"/>
+            </EntityType>
+            <EntityType Name="zhr_ovtime_role" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzpernr"/>
+                </Key>
+                <Property Name="Zzpernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No."/>
+                <Property Name="Indicator" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Indicator"/>
+            </EntityType>
+            <EntityType Name="zhr_ovtime_zcompt" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzpernr"/>
+                    <PropertyRef Name="Zzcompt"/>
+                </Key>
+                <Property Name="Zzpernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No."/>
+                <Property Name="Zzcompt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Compensation Type"/>
+                <Property Name="Indicator" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Indicator"/>
+            </EntityType>
+            <EntityType Name="zhr_pdf_handle" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzdocid"/>
+                </Key>
+                <Property Name="Zzdocid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Document ID"/>
+                <Property Name="MimeType" Type="Edm.String" sap:unicode="false" sap:label="Mime Type"/>
+                <Property Name="Url" Type="Edm.String" sap:unicode="false" sap:label="URL"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_awart" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Awart"/>
+                </Key>
+                <Property Name="Awart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Att./abs. type"/>
+                <Property Name="Atext" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="A/A type text"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_orgunit" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Orgeh"/>
+                </Key>
+                <Property Name="Orgeh" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+                <Property Name="Orgtx" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Org.Unit Short Text"/>
+                <Property Name="Maint" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="OM"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_pernr" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pernr"/>
+                </Key>
+                <Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No."/>
+                <Property Name="Cname" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name"/>
+                <Property Name="Orgeh" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_docid" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzdocid"/>
+                </Key>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created on"/>
+                <Property Name="Zzdocid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Document ID"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Time"/>
+                <Property Name="Zzorgeh" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+                <Property Name="Zzorget" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Org. Unit Text"/>
+                <Property Name="Zzedate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Overtime Date"/>
+                <Property Name="CreateBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Create By"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Changed On"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_stat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StatCode"/>
+                </Key>
+                <Property Name="StatCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document Status Code"/>
+                <Property Name="StatDesc" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Description"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_estat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StatCode"/>
+                </Key>
+                <Property Name="StatCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Employee Status Code"/>
+                <Property Name="StatDesc" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Description"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_pernrvh" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pernr"/>
+                </Key>
+                <Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No."/>
+                <Property Name="Cname" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name"/>
+                <Property Name="Orgeh" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+            </EntityType>
+            <EntityType Name="zhr_sh_orgunitvh" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Orgeh"/>
+                </Key>
+                <Property Name="Orgeh" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Org. Unit"/>
+                <Property Name="Orgtx" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Org.Unit Short Text"/>
+                <Property Name="Maint" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="OM"/>
+            </EntityType>
+            <Association Name="OvtHeader_to_OvtAttach" sap:content-version="1">
+                <End Type="ZHR_OD_EOVTIME_SRV.zhr_ovtime_h" Multiplicity="1" Role="FromRole_OvtHeader_to_OvtAttach"/>
+                <End Type="ZHR_OD_EOVTIME_SRV.zhr_ovtime_attachment" Multiplicity="*" Role="ToRole_OvtHeader_to_OvtAttach"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_OvtHeader_to_OvtAttach">
+                        <PropertyRef Name="Zzdocid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_OvtHeader_to_OvtAttach">
+                        <PropertyRef Name="Zzdocid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="OvtHeader_to_OvtItem" sap:content-version="1">
+                <End Type="ZHR_OD_EOVTIME_SRV.zhr_ovtime_h" Multiplicity="1" Role="FromRole_OvtHeader_to_OvtItem"/>
+                <End Type="ZHR_OD_EOVTIME_SRV.zhr_ovtime_i" Multiplicity="*" Role="ToRole_OvtHeader_to_OvtItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_OvtHeader_to_OvtItem">
+                        <PropertyRef Name="Zzdocid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_OvtHeader_to_OvtItem">
+                        <PropertyRef Name="Zzdocid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZHR_OD_EOVTIME_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zhr_ovtime_hSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_ovtime_h" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_ovtime_iSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_ovtime_i" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_ovtime_attachmentSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_ovtime_attachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_ovtime_roleSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_ovtime_role" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_ovtime_zcomptSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_ovtime_zcompt" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_pdf_handleSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_pdf_handle" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_awartSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_awart" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_orgunitSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_orgunit" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_pernrSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_pernr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_docidSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_docid" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_statSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_stat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_estatSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_estat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_pernrvhSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_pernrvh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="zhr_sh_orgunitvhSet" EntityType="ZHR_OD_EOVTIME_SRV.zhr_sh_orgunitvh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="OvtHeader_to_OvtItemSet" Association="ZHR_OD_EOVTIME_SRV.OvtHeader_to_OvtItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zhr_ovtime_hSet" Role="FromRole_OvtHeader_to_OvtItem"/>
+                    <End EntitySet="zhr_ovtime_iSet" Role="ToRole_OvtHeader_to_OvtItem"/>
+                </AssociationSet>
+                <AssociationSet Name="OvtHeader_to_OvtAttachSet" Association="ZHR_OD_EOVTIME_SRV.OvtHeader_to_OvtAttach" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zhr_ovtime_hSet" Role="FromRole_OvtHeader_to_OvtAttach"/>
+                    <End EntitySet="zhr_ovtime_attachmentSet" Role="ToRole_OvtHeader_to_OvtAttach"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://devs4a.app.co.id:8000/sap/opu/odata/sap/ZHR_OD_EOVTIME_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://devs4a.app.co.id:8000/sap/opu/odata/sap/ZHR_OD_EOVTIME_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
