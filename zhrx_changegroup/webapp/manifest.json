@@ -1,0 +1,198 @@
+{
+    "_version": "1.37.0",
+    "sap.app": {
+        "id": "com.zhrxchangegroup.zhrxchangegroup",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.0",
+            "toolsId": "c37ba1dd-f71e-4086-865a-110f359a126d"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZHR_OD_ECGROUP_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "localAnnotations"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "localAnnotations": {
+                "uri": "annotations/annotations.xml",
+                "type": "ODataAnnotation"
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-zhrxchangegroup-zhrxchangegroup-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "zhr_so_ecgroup",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.96.6",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.zhrxchangegroup.zhrxchangegroup.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.zhrxchangegroup.zhrxchangegroup.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMainECGroup",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetMainECGroup"
+                    ]
+                },
+                {
+                    "name": "CreateECGroupH",
+                    "pattern": "CreateECGroupH",
+                    "target": [
+                        "TargetCreateECGroupH"
+                    ]
+                },
+                {
+                    "name": "CreateECGroupD",
+                    "pattern": "CreateECGroupD/{data}",
+                    "target": [
+                        "TargetCreateECGroupD"
+                    ]
+                },
+                {
+                    "name": "DetailECGroup",
+                    "pattern": "DetailECGroup/{DocumentID}",
+                    "target": [
+                        "TargetDetailECGroup"
+                    ]
+                },
+                {
+                    "name": "UpdateECGroup",
+                    "pattern": "UpdateECGroup/{DocumentID}",
+                    "target": [
+                        "TargetUpdateECGroup"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetMainECGroup": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "MainECGroup",
+                    "viewName": "MainECGroup"
+                },
+                "TargetCreateECGroupH": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateECGroupH",
+                    "viewName": "CreateECGroupH"
+                },
+                "TargetCreateECGroupD": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CreateECGroupD",
+                    "viewName": "CreateECGroupD"
+                },
+                "TargetDetailECGroup": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "DetailECGroup",
+                    "viewName": "DetailECGroup"
+                },
+                "TargetUpdateECGroup": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "UpdateECGroup",
+                    "viewName": "UpdateECGroup"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.zhrxchangegroup.zhrxchangegroup.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

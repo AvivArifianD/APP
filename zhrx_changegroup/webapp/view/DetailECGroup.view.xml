@@ -1,0 +1,134 @@
+<mvc:View controllerName="com.zhrxchangegroup.zhrxchangegroup.controller.DetailECGroup" 
+xmlns:t="sap.ui.table" 
+xmlns="sap.m" 
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:u="sap.ui.unified" 
+xmlns:upload="sap.m.upload" 
+displayBlock="true"
+height="100%" 
+xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page id="page" title="Document Details" showNavButton="true" navButtonPress=".onBackPress">
+        <VBox id="_IDGenVBox1" renderType="Bare">
+            <f:SimpleForm
+                id="id_Header"
+                editable="false"
+                layout="ColumnLayout"
+                title="e-Change Group Header Info"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label id="id_DocidLab" text="Document ID" />
+                    <Text id="id_Docid" text="{header>/Zzdocid}" />
+                    <Label id="id_DocStatusLab" text="Document Latest Status" />
+                    <Text id="id_DocStatus" text="{header>/ZzdstatText}" />
+                    <Label id="id_ApproverLab" text="Latest Approval" />
+                    <Text id="id_Approver" text="{header>/ZzlatestApp}" />
+                    <Label id="id_ReqLab" text="Requestor" />
+                    <Text id="id_Req" text="{header>/ZzrequeName}" />
+                    <Label id="id_OrgehLab" text="Org. Unit" />
+                    <Text id="id_OrgUnit" text="{header>/Zzorgeh}" />
+                    <Label id="id_OrgetLab" text="Org. Unit Text" />
+                    <Text id="id_OrgUnitText" text="{header>/Zzorget}" />
+                    <Label id="id_CDateLab" text="Created Date" />
+                    <Text id="id_CDate" text="{ constraints : {displayFormat : 'Date'},
+                                                                path : 'header>/CreateDate',
+                                                                type : 'sap.ui.model.odata.type.DateTime'
+                                              }" />
+                    <Label id="id_CTimeLab" text="Created Time" />
+                    <Text id="id_CTime" text="{header>/FreeText}" />
+                    <Label id="id_CByLab" text="Created By" />
+                    <Text id="id_CBy" text="{header>/CreateBy}" />
+                    <Label id="id_HDateLab" text="Changed Date" />
+                    <Text id="id_HDate" text="{ constraints : {displayFormat : 'Date'},
+                                                                path : 'header>/ChangeDate',
+                                                                type : 'sap.ui.model.odata.type.DateTime'
+                                              }" />
+                    <Label id="id_HTimeLab" text="Changed Time" />
+                    <Text id="id_HTime" text="{header>/Msg}" />
+                    <Label id="id_HByLab" text="Changed By" />
+                    <Text id="id_HBy" text="{header>/ChangeBy}" />
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <content>
+            <f:SimpleForm id="id_ListFormD" title="e-Change Group List Detail" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                    <f:content>
+                        <Table
+                            id="id_splRequestTable"
+                            items="{chgList>/data}"
+                            fixedLayout="false"
+                            inset="false"
+                            busyIndicatorDelay="0"
+                            growing="true"
+                            growingThreshold="15"
+                            growingScrollToLoad="{= !${device>/system/desktop}}"
+                            visible="true"
+                        >
+                            <columns>
+                                <!--Employee No -->
+                                <Column id="id_colPernr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colPernrtxt" text="Employee No." />
+                                </Column>
+                                <!-- Employee Name -->
+                                <Column id="id_colEmpName" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEmpNametxt" text="Employee Name" />
+                                </Column>
+                                <!-- WsrD -->
+                                <Column id="id_colEWsrD" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEWsrDtxt" text="Work Schedule Rule Date" />
+                                </Column>
+                                <!-- Wsr -->
+                                <Column id="id_colWsr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colWsrtxt" text="Work Schedule Rule" />
+                                </Column>
+                                <!-- Employee Status -->
+                                <Column id="id_colEstat" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEstatTxt" text="Employee Doc. Status" />
+                                </Column>
+                                <!-- Remarks -->
+                                <Column id="id_colRmrks" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colRmrkstxt" text="Remarks" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="id_splRequestColumnListItem">
+                                    <cells>
+                                        <!--Employee No -->
+                                        <Text id="id_txtPernr" text="{chgList>Zzpernr}" />
+                                        <!-- Employee Name -->
+                                        <Text id="id_txtEmpName" text="{chgList>ZzpernrName}" />
+                                        <!-- WSR Date -->
+                                        <Text id="id_txtWsrD" text="{ constraints : {displayFormat : 'Date'},
+                                                                        path : 'chgList>Zzbegda',
+                                                                        type : 'sap.ui.model.odata.type.DateTime'
+                                                                        }" />
+                                        <!-- WSR -->
+                                        <Text id="id_txtWsr" text="{chgList>Zzschkz} ({chgList>ZzschkzTxt})" />
+                                        <!-- Employe Status-->
+                                        <Text id="txtIstatTxt" text="{chgList>ZzistatTxt}" />
+                                        <!-- Remarks -->
+                                        <Text id="txtRmrks" text="{chgList>Zzrmrks}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </f:content>
+                </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

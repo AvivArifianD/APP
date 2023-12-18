@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectWsr"
+		title="Work Schedule Rule"
+		items="{/zhr_sh_wsrSet}"
+		search=".onVHSearchWsr"
+		confirm=".onVHCloseWsr"
+		cancel=".onVHClosePer">
+		<StandardListItem id="id_WsrList"
+			title="{Schkz}"
+			description="{Rtext}" />
+	</SelectDialog>
+</core:FragmentDefinition>

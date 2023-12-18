@@ -1,0 +1,193 @@
+<mvc:View controllerName="com.zhrxchangegroup.zhrxchangegroup.controller.CreateECGroupD" xmlns:semantic="sap.m.semantic" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:upload="sap.m.upload">
+    <semantic:FullscreenPage id="page" title="Create e-Change Group Detail" showNavButton="true" navButtonPress=".onBackPress" busyIndicatorDelay="0" busy="{= ${create>/busy} || ${global>/isAssignmentLoading} }">
+        <semantic:content>
+            <VBox id="_IDGenVBox1" renderType="Bare">
+                <f:SimpleForm
+                    id="id_FormCreateH"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="e-Change Group Header Info"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="1"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <!-- Org Unit -->
+                        <Label id="id_OrgehLab" text="Org.Unit" />
+                        <Text id="id_OrgUnit" text="{headerArray>/Zzorgeh} - {headerArray>/Zzorget}" />
+                        <!-- Employees to be notified 1 -->
+                        <Label id="id_notif1lab" text="Employees to be notified 1" />
+                        <Text id="id_notif1text" text="{headerArray>/Zzpernrnotif1} - {headerArray>/Zzpernrnotif1Name}" />
+                        <!-- Employees to be notified 2 -->
+                        <Label id="id_notif2lab" text="Employees to be notified 2" />
+                        <Text id="id_notif2text" text="{headerArray>/Zzpernrnotif2} - {headerArray>/Zzpernrnotif2Name}" />
+                        <!-- Employees to be notified 3 -->
+                        <Label id="id_notif3lab" text="Employees to be notified 3" />
+                        <Text id="id_notif3text" text="{headerArray>/Zzpernrnotif3} - {headerArray>/Zzpernrnotif3Name}" />
+
+                        <!-- Hidden Fields -->
+                        <Label id="id_hidfields" text="hidden fields" visible="false"/>
+                        <Text id="id_Orgeh" text="{headerArray>/Zzorgeh}" visible="false" />
+                        <Text id="id_Persa" text="{headerArray>/Zzpersa}" visible="false" />
+                        <Text id="id_Btrtl" text="{headerArray>/Zzbtrtl}" visible="false" />
+                        <Text id="id_Orget" text="{headerArray>/Zzorget}" visible="false" />
+                        <Text id="id_PersaTxt" text="{headerArray>/PersaTxt}" visible="false" />
+                        <Text id="id_BtrtlTxt" text="{headerArray>/BtrtlTxt}" visible="false" />
+
+                        <Text id="id_Zzpernrnotif1Name" text="{headerArray>/Zzpernrnotif1Name}" visible="false" />
+                        <Text id="id_Zzpernrnotif2Name" text="{headerArray>/Zzpernrnotif2Name}" visible="false" />
+                        <Text id="id_Zzpernrnotif3Name" text="{headerArray>/Zzpernrnotif3Name}" visible="false" />
+                        <Text id="id_Zzpernrnotif1" text="{headerArray>/Zzpernrnotif1}" visible="false" />
+                        <Text id="id_Zzpernrnotif2" text="{headerArray>/Zzpernrnotif2}" visible="false" />
+                        <Text id="id_Zzpernrnotif3" text="{headerArray>/Zzpernrnotif3}" visible="false" />
+                  
+                    </f:content>
+                </f:SimpleForm>
+
+                <f:Form id="id_FormCreateD" editable="true"  title="e-Change Group Detail">
+                    <f:layout>
+                        <f:ResponsiveGridLayout
+                            id="_IDGenResponsiveGridLayout1"
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="4"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false"
+                        />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer2">
+                            <f:formElements>
+                                <f:FormElement id="id_ESPernr" label="Employee No.">
+                                    <f:fields>
+                                        <Input id="id_Pernr" placeholder="Fill Employee No." showValueHelp="true" valueHelpRequest=".onValueHelpRequestPer" required="true" maxLength="8"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESWsrD" label="Work Schedule Rule Date">
+                                    <DatePicker id="id_WsrD" showFooter="true" valueFormat="dd.MM.yyyy" placeholder="dd.mm.yyyy" displayFormat="dd.MM.yyyy" required="true" />
+                                </f:FormElement>
+                                <f:FormElement id="id_ESWsr" label="Work Schedule Rule">
+                                    <f:fields>
+                                        <Input id="id_Wsr" placeholder="Fill Work Schedule Rule" showValueHelp="true" valueHelpRequest=".onVHWsr" required="true" maxLength="8"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="id_ESRmrks" label="Remarks">
+                                    <f:fields>
+                                        <Input id="id_Rmrks" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement id="_IDGenFormElement1">
+                                    <FlexBox id="_IDGenFlexBox1" alignItems="Stretch" justifyContent="End" width="100%">
+                                        <Button class="sapUiTinyMarginEnd" id="id_btnAdd" press="onAdd" text="Add" type="Emphasized" icon="sap-icon://add" />
+                                        <Button id="id_btnReset" press="onReset" text="Reset" type="Default" icon="sap-icon://reset" />
+                                    </FlexBox>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+
+                <f:SimpleForm id="id_ListFormD" title="e-Change Group List Detail" editable="true" singleContainerFullSize="true">
+                    <f:content>
+                        <Table
+                            id="id_splRequestTable"
+                            items="{chgList>/data}"
+                            fixedLayout="false"
+                            inset="false"
+                            itemPress="onItemPressed"
+                            busyIndicatorDelay="0"
+                            growing="true"
+                            growingThreshold="15"
+                            growingScrollToLoad="{= !${device>/system/desktop}}"
+                            visible="true"
+                            mode="Delete"
+                            delete="onItemDeleted"
+                            paste="onPaste"
+                        >
+                            <columns>
+                                <!--Employee No -->
+                                <Column id="id_colPernr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colPernrtxt" text="Employee No." />
+                                </Column>
+                                <!-- Employee Name -->
+                                <Column id="id_colEmpName" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEmpNametxt" text="Employee Name" />
+                                </Column>
+                                <!-- WsrD -->
+                                <Column id="id_colEWsrD" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colEWsrDtxt" text="Work Schedule Rule Date" />
+                                </Column>
+                                <!-- Wsr -->
+                                <Column id="id_colWsr" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colWsrtxt" text="Work Schedule Rule" />
+                                </Column>
+                                <!-- Remarks -->
+                                <Column id="id_colRmrks" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colRmrkstxt" text="Remarks" />
+                                </Column>
+                                <!-- Draft Status -->
+                                <Column id="id_colDraft" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colDrafttxt" text="Draft Status" />
+                                </Column>
+                                <!-- Error Msg -->
+                                <Column id="id_colError" width="8em" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="id_colErrortxt" text="Error Message" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Navigation" id="id_splRequestColumnListItem">
+                                    <cells>
+                                        <!--Employee No -->
+                                        <Text id="id_txtPernr" text="{chgList>Zzpernr}" />
+                                        <!-- Employee Name -->
+                                        <Text id="id_txtEmpName" text="{chgList>ZzpernrName}" />
+                                        <!-- WSR Date -->
+                                        <Text id="id_txtWsrD" text="{ constraints : {displayFormat : 'Date'},
+                                                                        path : 'chgList>Zzbegda',
+                                                                        type : 'sap.ui.model.odata.type.DateTime'
+                                                                        }" />
+                                        <!-- WSR -->
+                                        <Text id="id_txtWsr" text="{chgList>Zzschkz} ({chgList>ZzschkzTxt})" />
+                                        <!-- Remarks -->
+                                        <Text id="txtRmrks" text="{chgList>Zzrmrks}" />
+                                        <!-- Draft -->
+                                        <Text id="txtDraft" text="{chgList>FreeText}" />
+                                        <!-- Remarks -->
+                                        <Text id="txtError" text="{chgList>Msg}" />
+                                        
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </f:content>
+                </f:SimpleForm>
+
+                <f:SimpleForm id="id_ButtonFormD" layout="ResponsiveGridLayout" singleContainerFullSize="true">
+                    <FlexBox id="_IDGenFlexBox3" alignItems="Stretch" justifyContent="End" width="100%">
+                        <Button class="sapUiTinyMarginEnd" id="id_btnSubmit" press="onSubmit" text="Submit" type="Emphasized" />
+                        <Button id="id_btnSave" press="onSubmit" text="Save" type="Default" />
+                        <Button id="id_Cancel" press="onBackPress" text="Cancel" type="Transparent" />
+                    </FlexBox>
+                </f:SimpleForm>
+            </VBox>
+        </semantic:content>
+    </semantic:FullscreenPage>
+</mvc:View>
